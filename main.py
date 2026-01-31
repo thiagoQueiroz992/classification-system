@@ -26,3 +26,6 @@ for s in scores.keys():
             continue
         else:
             break
+
+score_mean = sum(scores.values()) / 5
+print(f"A sua média foi de {score_mean} pontos.")
