@@ -15,4 +15,14 @@ while True:
         break
 
 for s in scores.keys():
-    scores[s] = float(input(f"Qual foi sua nota em {s.title()}? "))
+    while True:
+        try:
+            scores[s] = float(input(f"Qual foi sua nota em {s.title()}? "))
+            if not (0 <= scores[s] <= 1000):
+                print("Deve ser um número até 1000!")
+                continue
+        except:
+            print("Valor inválido!")
+            continue
+        else:
+            break
