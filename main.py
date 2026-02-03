@@ -1,4 +1,4 @@
-import courses
+import courses, settings
 
 name = "null"
 subscription_number = 0
@@ -32,6 +32,20 @@ score_mean = sum(scores.values()) / 5
 print(f"A sua média foi de {score_mean} pontos.")
 
 for o in range(1, 3):
-    chosen_courses.append(str(input(f"Qual curso você escolhe para a {o}ª opção? ")).title())
+    chosen_courses.append(courses.courses[settings.answer_generator(o)])
 
 print(f"Suas escolhas foram de {chosen_courses[0]} para a 1ª opção e {chosen_courses[1]} para a 2ª opção.")
+
+while True:
+    ans = 0
+    try:
+        ans = int(input("Quer confirmar a realização da inscrição?\n\t[ 0 ] Sim\n\t[ 1 ] Não\n"))
+        if ans not in (0, 1):
+            print("Valor inválido!")
+            continue
+    except:
+        print("Valor inválido!")
+        continue
+    else:
+        if ans == 0: break
+        else: exit()
